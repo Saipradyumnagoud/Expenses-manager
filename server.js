@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const authRoutes = require('./routes/auth');
+const expenseRoutes = require('./routes/expenses');
+
 // Initialize Express
 const app = express();
 
@@ -18,6 +21,10 @@ mongoose.connect('mongodb://localhost/expense-manager', {
 
 // Middleware
 app.use(bodyParser.json());
+
+// Routes
+app.use('/auth', authRoutes);
+app.use('/expenses', expenseRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
