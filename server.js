@@ -12,7 +12,6 @@ const app = express();
 mongoose.connect('mongodb://localhost/expense-manager', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
 }).then(() => {
     console.log('Connected to MongoDB');
 }).catch((err) => {
